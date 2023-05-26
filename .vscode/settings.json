@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/95aafcfa-7663-4125-b28b-e509048cf702/resourceGroups/StreetEats/providers/Microsoft.Web/sites/StreetEats",
+  "appService.deploySubpath": "dist\\street-eats"
+}

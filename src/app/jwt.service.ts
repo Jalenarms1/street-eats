@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,19 +15,19 @@ export class JwtService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return localStorage.getItem(`${environment.token_pre}_token`);
   }
 
   // save JWT token to local storage
   saveToken(token: string): void {
-    localStorage.setItem('token', token);
+    localStorage.setItem(`${environment.token_pre}_token`, token);
     this.isAuthenticated$.next(true);
     this.router.navigateByUrl('/');
   }
 
   // remove JWT token from local storage
   destroyToken(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem(`${environment.token_pre}_token`);
     this.isAuthenticated$.next(false);
     this.router.navigateByUrl('/');
 

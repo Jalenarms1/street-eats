@@ -1,4 +1,11 @@
-<app-home-heading></app-home-heading>
-<app-category-nav></app-category-nav>
-<app-login-prompt ></app-login-prompt>
-<app-shop-list></app-shop-list>
+<div class="slide-up pb-28 relative">
+    <app-category-nav></app-category-nav>
+    <app-login-prompt *ngIf="!jwt.isAuthenticated()" class="fixed top-50 bottom-50"></app-login-prompt>
+    <app-shop-list></app-shop-list>
+    <app-recently-viewed></app-recently-viewed>
+    <div class="admin-prompt mt-16  mx-auto flex justify-center text-white">
+        <a routerLink="/owner/food" class="underline active:text-slate-400">Currently own a food business?</a>
+    </div>
+</div>
+
+

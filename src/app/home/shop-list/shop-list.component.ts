@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BusinessService } from 'src/app/business.service';
+
 
 @Component({
   selector: 'app-shop-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopListComponent implements OnInit {
 
-  constructor() { }
+  modalOpen: boolean = false
+  selectedAddr: string = ''
+
+  constructor(public businessServ: BusinessService) { }
 
   ngOnInit(): void {
+  }
+
+  
+
+  toggleModal(addr: string | null = null) {
+    this.selectedAddr = addr as string
+    this.modalOpen = !this.modalOpen
+
+    
   }
 
 }

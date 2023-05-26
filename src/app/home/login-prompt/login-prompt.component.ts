@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
 import { LoginModalService } from 'src/app/login-modal.service';
 
 @Component({
@@ -7,13 +7,30 @@ import { LoginModalService } from 'src/app/login-modal.service';
   styleUrls: ['./login-prompt.component.css']
 })
 export class LoginPromptComponent implements OnInit {
+  openLoginPrompt: boolean = false
   constructor(private modalService: LoginModalService) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.openLoginPrompt = true
+      // window.scroll(0,0)
+      
+    }, 1000)
   }
 
   openModal() {
+    
+    this.openLoginPrompt = false
+
     this.modalService.toggleModal()
+  }
+
+  closeLoginPrompt() {
+
+    this.openLoginPrompt = false
+
+
+
   }
 
 }

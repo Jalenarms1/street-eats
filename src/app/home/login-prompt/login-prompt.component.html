@@ -1,8 +1,15 @@
-<section class="bg-slate-200 shadow-inner shadow-slate-700 py-2">
-    <div class=" mx-auto px-2">
-      <div class="w-full text-center flex flex-col gap-4">
-        <h2 class="text-2xl font-bold ">Want an Easy Checkout?</h2>
-        <button (click)="openModal()" class="inline-block bg-orange-400 text-white rounded-full py-2 w-[90%] mx-auto font-semibold transition duration-300 hover:bg-orange-500">Create Account</button>
-      </div>
+
+<!-- Background overlay -->
+<div *ngIf="openLoginPrompt" class="fixed z-50 top-0 left-0 w-full h-full bg-gray-500 bg-opacity-50  fade-in pointer-events-auto">
+  <!-- Modal -->
+  <div class="fixed z-50 top-32 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg px-1 py-5  w-[90%]">
+    <div class="absolute top-3 right-3">
+      <button (click)="closeLoginPrompt()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-zinc-100">X</button>
     </div>
-</section>
+    <div class="text-center mt-8">
+      <h3 class="text-2xl font-bold mb-4">Want an easy checkout?</h3>
+      <button class="bg-orange-400 font-semibold text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200" (click)="openModal()">Create Account</button>
+    </div>
+  </div>
+</div>
+

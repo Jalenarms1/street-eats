@@ -1,0 +1,17 @@
+.slide-from-right {
+    /* Set initial state to the right of the screen */
+    transform: translateX(100%);
+    /* Animate the slide-in effect */
+    animation: slide-in-right 0.5s forwards;
+  }
+  
+  /* Define the slide-in animation */
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  

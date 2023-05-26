@@ -1,0 +1,58 @@
+<div class="bg-orange-950 min-h-screen slide-from-right-user">
+    <div class="mx-4 py-4 mt-1">
+      <h2 class="text-2xl font-semibold text-white mb-6">
+        Account
+      </h2>
+      <div class="bg-white rounded-lg shadow-md ">
+        <div class="px-4 py-6">
+          <div class="flex items-center mb-6">
+            <!-- <div class="flex-shrink-0 bg-zinc-800 rounded-full overflow-hidden">
+              <img class="w-16 h-16 object-cover" src="https://via.placeholder.com/150" alt="User Avatar">
+            </div> -->
+            <div class="">
+              <p class="text-2xl font-medium text-gray-900">Welcome back!</p>
+              <p class="text-gray-800 text-sm">{{user.user.email}}</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-200 pb-4">
+            <div class="text-sm text-gray-500">Pending Orders</div>
+            <a href="#" class="text-sm text-orange-400 hover:text-orange-500">View all</a>
+          </div>
+          <div class="mt-4">
+            <p class="text-gray-500 text-sm">You have no pending orders</p>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-200 py-4">
+            <div class="text-sm text-gray-500">Completed Orders</div>
+            <a href="#" class="text-sm text-orange-400 hover:text-orange-500">View all</a>
+          </div>
+          <div class="mt-4">
+            <p class="text-gray-500 text-sm">You have no completed orders</p>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-200 py-4">
+            <div class="text-sm text-gray-500">Cart</div>
+            <a href="#" class="text-sm text-orange-400 hover:text-orange-500">View cart</a>
+          </div>
+          <div class="mt-4">
+            <p class="text-gray-500 text-sm">Your cart is empty</p>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-200 py-4">
+            <div class="text-sm text-gray-500">Favorites</div>
+            <a href="#" class="text-sm text-orange-400 hover:text-orange-500">View all</a>
+          </div>
+          <div class="mt-4">
+            <p class="text-gray-500 text-sm">You have no favorites</p>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-200 py-4">
+            <div class="text-sm text-gray-500">Settings</div>
+            <a href="#" class="text-sm text-orange-400 hover:text-orange-500">Edit</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center mb-4">
+        <button (click)="logout()" class="bg-orange-400 hover:bg-orange-500 text-white font-bold my-3 py-2 px-4 rounded">
+          Logout
+        </button>
+      </div>
+    </div>
+</div>
+  

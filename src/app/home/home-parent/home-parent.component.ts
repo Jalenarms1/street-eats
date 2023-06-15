@@ -13,7 +13,7 @@ export class HomeParentComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0,0);
-    this.businessServ.getBuinesses()
+    
     
   }
 

@@ -1,7 +1,9 @@
 <app-home-heading></app-home-heading>
 <app-navbar></app-navbar>
-<div class="w-max-full overflow-hidden">
+<div class="w-max-full overflow-hidden relative">
   <router-outlet ></router-outlet>
-
+  <app-login-prompt *ngIf="!jwt.isAuthenticated()"></app-login-prompt>
 </div>
 <app-login-modal *ngIf="modalService.showModal"></app-login-modal>
+<app-order-item-modal *ngIf="orderItemS.orderItemModalOpen"></app-order-item-modal>
+<app-confirm-order-modal *ngIf="orderS.checkoutModalOpen"></app-confirm-order-modal>

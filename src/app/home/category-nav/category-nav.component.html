@@ -1,31 +1,12 @@
 <div class="w-full p-5">
     <p class="text-2xl font-semibold text-slate-50">Categories</p>
     <div class="sm:grid sm:grid-cols-10 max-sm:flex max-sm:gap-5 overflow-auto py-4 pl-1 gap-2">
-        <div class="flex justify-center  items-center flex-col max-sm:min-w-fit    flex-grow cursor-pointer active:shadow-sm active:shadow-slate-500 py-2 transition-shadow  ">
-            <div class="rounded-full w-16 h-16 bg-white flex justify-center items-center">
-                <div class="rounded-full w-14 h-14 bg-orange-900 flex justify-center items-center">
-                  <img class="w-12 h-12 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ5zrF6ZPdAGrQ7F-ZVyEcJJpwDYQVtad_hA&usqp=CAU" alt="mexican-food-icon">
-                </div>
-            </div>
-          <p class="text-slate-50 font-semibold text-md text-center mt-2">Mexican</p>
-        </div>
-        <div class="flex justify-center  items-center flex-col max-sm:min-w-fit    flex-grow cursor-pointer active:shadow-sm active:shadow-slate-500 py-2 transition-shadow  ">
-            <img class="w-14 rounded-full h-14" src="https://www.pngitem.com/pimgs/m/63-638388_pizza-food-italian-pepperoni-icon-mozzarella-restaurant-hd.png" alt="italian-food-icon">
-            <p class="text-slate-50 font-semibold text-md text-center mt-2">Italian</p>
-        </div>
-        <div class="flex justify-center  items-center flex-col max-sm:min-w-fit    flex-grow cursor-pointer active:shadow-sm active:shadow-slate-500 py-2 transition-shadow  ">
-            <img class="w-14 rounded-full h-14" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4gaNQ56bMXLtHKU6JV8DNT5bBGMWPGNKwKIDsvd7Rym5Z9c1S1bJ6NPx8Vy6dzYI88A&usqp=CAU" alt="asian-food-icon">
-          <p class="text-slate-50 font-semibold text-md text-center mt-2">Asian</p>
-        </div>
-        <div class="flex justify-center  items-center flex-col max-sm:min-w-fit    flex-grow cursor-pointer active:shadow-sm active:shadow-slate-500 py-2 transition-shadow  ">
-            <img class="w-14 rounded-full h-14" src="https://us.123rf.com/450wm/kharlamovainna/kharlamovainna2008/kharlamovainna200800094/168821759-hamburger-icon.jpg?ver=6" alt="amer-food-icon">
-          <p class="text-slate-50 font-semibold text-md text-center mt-2">American</p>
+        <div *ngFor="let c of categories"  class="flex justify-center  items-center flex-col max-sm:min-w-fit    flex-grow cursor-pointer py-2 transition-shadow ">
+          <img (click)="setActive(c.category)" class="w-14 rounded-full h-14 transition-all" [ngClass]="{'border border-orange-950 outline-dashed outline-zinc-200': c.active}" src="{{c.icon}}">
+          <p class="text-slate-50 font-semibold text-md text-center mt-2">{{c.category}}</p>
         </div>
         
-        <div class="flex justify-center  items-center flex-col max-sm:min-w-fit    flex-grow cursor-pointer active:shadow-sm active:shadow-slate-500 py-2 transition-shadow  ">
-            <img class="w-14 rounded-full h-14" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS1n2yfTKEgXnkJbxk6hauWrP_Cl2KKAQKOQ&usqp=CAU" alt="amer-food-icon">
-          <p class="text-slate-50 font-semibold text-md text-center mt-2">Vegetarian</p>
-        </div>
+        
         
     </div>
 

@@ -12,13 +12,13 @@ import { RecentlyViewedComponent } from './recently-viewed/recently-viewed.compo
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MapModalComponent } from './map-modal/map-modal.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     CategoryNavComponent,
     HomeParentComponent,
-    LoginPromptComponent,
     ShopListComponent,
     RecentlyViewedComponent,
     MapModalComponent
@@ -27,7 +27,8 @@ import { MapModalComponent } from './map-modal/map-modal.component';
     CommonModule,
     MatIconModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    RouterModule
   ],
   exports:[MatIconModule],
 })

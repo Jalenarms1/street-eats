@@ -1,3 +1,6 @@
+import { FoodItem } from "./FoodItem";
+import { Topping } from "./Topping";
+
 export interface Business {
     id: string,
     name: string,
@@ -6,4 +9,6 @@ export interface Business {
     address: string,
     phoneNumber: string,
     username: string,
+    foodItems: FoodItem[],
+    toppings: Topping[]
 }

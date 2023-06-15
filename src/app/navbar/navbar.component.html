@@ -1,41 +1,41 @@
 <nav class="bg-orange-400  fixed bottom-0 left-0 right-0 z-10">
     <app-checkout></app-checkout>
     <div *ngIf="!jwt.isAuthenticated()" class="flex justify-around text-orange-100 ">
-      <a routerLink="/" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <a routerLink="/" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">lunch_dining</mat-icon>
       </a>
-      <button (click)="modalService.toggleModal()" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <button (click)="modalService.toggleModal()" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">menu_book</mat-icon>
 
       </button>
-      <a routerLink="/cart" class=" relative flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <a routerLink="/cart" class=" relative flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">shopping_cart</mat-icon>
         <div class="w-4 h-4 flex justify-center items-center bg-red-600 rounded-full absolute cst-pos  ">
-            <p class="text-xs">1</p>
+            <p class="text-xs">{{cartS.cart.orderItems.length}}</p>
         </div>
       </a>
-      <a *ngIf="jwt.isAuthenticated()" routerLink="/user" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <a *ngIf="jwt.isAuthenticated()" routerLink="/user" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">person</mat-icon>
       </a>
-      <button (click)="modalService.toggleModal()" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <button (click)="modalService.toggleModal()" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">person</mat-icon>
 
       </button>
     </div>
     <div *ngIf="jwt.isAuthenticated()" class="flex justify-around text-orange-100 ">
-      <a routerLink="/" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <a routerLink="/" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">lunch_dining</mat-icon>
       </a>
-      <a routerLink="/orders" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <a routerLink="/orders" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">menu_book</mat-icon>
       </a>
-      <a routerLink="/cart" class=" relative flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <a routerLink="/cart" class=" relative flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">shopping_cart</mat-icon>
         <div class="w-4 h-4 flex justify-center items-center bg-red-600 rounded-full absolute cst-pos  ">
             <p class="text-xs">1</p>
         </div>
       </a>
-      <a *ngIf="jwt.isAuthenticated()" routerLink="/user" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-4  items-center w-1/4">
+      <a *ngIf="jwt.isAuthenticated()" routerLink="/user" class="flex flex-col shadow-sm active:shadow-inner shadow-slate-900 py-3  items-center w-1/4">
         <mat-icon class="">person</mat-icon>
       </a>
     </div>

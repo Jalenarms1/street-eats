@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiUrl: 'https://localhost:7027',
   token_pre: 'streeteats_dev',
+  cartToken: 'streetEatsCart_dev',
   gmApiKey: 'AIzaSyDR1Fc2FYQIRTZKU1OfZE49gl4Yol6q0r0'
 };
 

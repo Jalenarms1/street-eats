@@ -1,0 +1,91 @@
+<div class="fixed inset-0 bg-black opacity-50 z-40 pointer-events-none"></div>
+
+<div class="fixed z-50 inset-0 flex items-center justify-center">
+
+    <div class="fixed z-50   bg-orange-400 border-2 border-black rounded-lg shadow-xl  pt-5 w-[90%] max-h-[600px] overflow-y-auto fade-in">
+        <div class="absolute top-3 right-3">
+            <button (click)="orderItemS.toggleModal()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-zinc-100">X</button>
+        </div>
+        
+        <div class="mx-2">
+            <div class="">
+                <div class="selected-item-header border-b border-black pb-2 w-fit">
+                <p class="text-lg font-semibold">{{orderItemS.selectedItem.name}}</p>
+                </div>
+                <div class="selected-item-desc pt-2">
+                    <p class="text-sm">{{orderItemS.selectedItem.description}}</p>
+                </div>
+                <div class="my-2">
+                    <img src="{{orderItemS.selectedItem.image}}" alt="selected-food-image" class="w-20 h-20 rounded-md">
+                </div> 
+            </div>
+            <h4 class="text-lg font-semibold mb-2">Toppings:</h4>
+            <form class="mb-4 overflow-y-auto h-60 shadow-sm shadow-zinc-800 p-2 bg-zinc-100">
+                <div class="flex flex-wrap gap-3">
+                    <div *ngFor="let tp of businessServ.currBusiness.toppings" class="w-full sm:w-1/2 md:w-1/3 flex flex-col gap-2 border-b border-zinc-400 pb-2">
+                        <div class="flex items-center gap-5">
+                            <label class="  flex items-center w-fit">
+                                <input (input)="onToppingSelect(tp)" type="checkbox" name="limon" class="mr-2 w-4 h-4">
+                                <span class="text-sm font-semibold ">{{tp.name}}:</span>
+                            </label>
+                            
+                            <p>(+ ${{tp.price.toFixed(2)}})</p>
+                            
+                        </div>
+                        <div *ngIf="showToppingOptTo.includes(tp.id)" class="flex gap-2">
+                            <div class="flex gap-2">
+                                <input (input)="onSideOptToggle(tp.id, 'Y')" type="radio" [name]="'onSideCheck-' + tp.id"  class="onSideCheck" checked>
+                                <label for="onSideCheck">On Side</label>
+    
+                            </div>
+                            <div class="flex gap-2">
+                                <input (input)="onSideOptToggle(tp.id, 'N')" type="radio" [name]="'onSideCheck-' + tp.id"  class="onTopCheck">
+                                <label for="onSideCheck">On Top</label>
+    
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+            
+            
+            <div [ngClass]="{'block': showAddToCartWarning, 'hidden': !showAddToCartWarning}">
+                <div class="fixed inset-0 bg-black opacity-50 z-40 pointer-events-none"></div>
+    
+                <div class="fixed z-50 inset-0 flex items-center justify-center">
+    
+                    <div class="fixed z-50   bg-orange-950 border-2 border-black rounded-lg shadow-xl px-1 py-5 w-[80%] max-h-full overflow-y-auto fade-in">
+                        <div class="absolute top-3 right-3">
+                            <button (click)="closeOrConfirmWarning()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-zinc-100">X</button>
+                        </div>
+                        <div class="mt-10 px-2 flex flex-col gap-2">
+                            <p class="text-white ">You must clear your cart before starting an order with a different business.</p>
+                            <button (click)="closeOrConfirmWarning(true)" class="bg-green-600 text-white px-2 rounded-md py-1">Clear & Continue</button>
+                        
+                        </div>
+                    </div>
+                </div>  
+
+            </div>
+            <div class="flex items-center gap-3 py-2 mt-4  pb-20">
+                <mat-icon (click)="adjItemQuantity(-1)" class="shadow-sm shadow-zinc-800 bg-orange-950 active:bg-orange-800 text-orange-400">remove</mat-icon>
+                <p class="bg-zinc-200 py-2 px-4 rounded-md">{{orderItemS.orderItem.quantity}}</p>
+                <mat-icon (click)="adjItemQuantity(1)" class="shadow-sm shadow-zinc-800 bg-orange-950 active:bg-orange-800 text-orange-400">add</mat-icon>
+            </div>
+        </div>
+        <div class="flex justify-between items-center py-1 gap-4 sticky bottom-0 w-full bg-orange-950 px-2 shadow-inner shadow-orange-900">
+            <div class="flex flex-col gap-2  ">
+                <button (click)="addOrderItemToCart()" class="bg-blue-500  text-white px-4 py-1 rounded hover:bg-blue-600 " type="submit">
+                    <mat-icon class="mt-1">add_shopping_cart</mat-icon>
+                </button>
+            </div>
+            <p class="text-white text-xl">${{orderItemS.orderItem.total.toFixed(2)}}</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>

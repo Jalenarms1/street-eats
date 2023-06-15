@@ -1,1 +1,60 @@
-<p>business-parent works!</p>
+<div class="left-slide ">
+
+    <header class="bg-orange-950 text-white py-4">
+        <div class="container mx-auto flex  justify-between px-4">
+            <div class="flex gap-3">
+                <img src="{{businessServ.currBusiness.image}}" alt="Business Icon" class="w-20 h-20 rounded-md">
+                <div class="flex flex-col ">
+                    <div class="flex items-center">
+                      <h1 class="text-lg font-bold ">{{businessServ.currBusiness.name}}</h1>
+                    </div>
+                    <div class="text-sm">
+                      <p class="text-zinc-100">{{businessServ.currBusiness.address}}</p>
+                    </div>
+                    <div class="stars flex">
+                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                        <mat-icon class="text-sm  m-0">star</mat-icon>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="tab-container pb-20 relative">
+        <div
+          class="tab cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
+          [class.active]="showEntrees"
+          (click)="toggleTab('entrees')"
+        >
+            <mat-icon *ngIf="!showEntrees">expand_more</mat-icon>
+            <mat-icon *ngIf="showEntrees">expand_less</mat-icon>
+          <p>Entrees</p>
+        </div> 
+        <app-food-items [filteredFoodTypeArr]="filteredFoodTypeArr" *ngIf="showEntrees" type="Entree"></app-food-items>
+        <div class="tab cursor-pointer py-2 text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center" [class.active]="showSides" (click)="toggleTab('sides')">
+            <mat-icon *ngIf="!showSides">expand_more</mat-icon>
+            <mat-icon *ngIf="showSides">expand_less</mat-icon>
+          <p>Sides</p>
+        </div>
+        <app-food-items [filteredFoodTypeArr]="filteredFoodTypeArr" *ngIf="showSides" type="Side"></app-food-items>
+        <div
+          class="tab cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
+          [class.active]="showDrinks"
+          (click)="toggleTab('drinks')"
+        >
+            <mat-icon *ngIf="!showDrinks">expand_more</mat-icon>
+            <mat-icon *ngIf="showDrinks">expand_less</mat-icon>
+          <p>Drinks</p>
+        </div>
+        <app-food-items [filteredFoodTypeArr]="filteredFoodTypeArr" *ngIf="showDrinks" type="Drink"></app-food-items>
+        
+        
+    </div>
+</div>
+  
+  
+  

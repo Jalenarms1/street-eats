@@ -8,72 +8,11 @@
         <h2 class="text-2xl text-slate-50 font-bold ">Food Near You</h2>
         <mat-icon class="text-slate-50">my_location</mat-icon>
     </div>
-    
-    <!-- <ul class="grid max-sm:w-[80%] max-sm:mx-auto grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <li class="flex flex-col  bg-zinc-800 rounded-md shadow-sm shadow-slate-600 overflow-hidden">
-        <img src="https://via.placeholder.com/300x200.png?text=Food+Truck" alt="Food Truck Image" class="w-full h-64 object-cover">
-        <div class="flex flex-col justify-center">
-            <div class="flex justify-between p-3 h-20 shadow-inner shadow-slate-700">
-                <div class="flex flex-col ">
-                    <h3 class="text-lg text-slate-50 font-semibold ">Food Truck Name</h3>
-                    <p class="text-xs text-slate-300">Tags: Mexican</p>
-                </div>
-                <p class="text-slate-300 text-sm mb-2">0.5m</p>
 
-            </div>
-            <div class="">
-                <a href="#" class="bg-orange-500 text-white px-4 py-2  font-semibold hover:bg-orange-600 flex w-full justify-between transition-colors">
-                    <p>Order Now</p> 
-                    <mat-icon>add_box</mat-icon>
-                </a>
-            </div>
-        </div>
-      </li>
-      <li class="flex flex-col  bg-zinc-800 rounded-md shadow-sm shadow-slate-600 overflow-hidden">
-        <img src="https://via.placeholder.com/300x200.png?text=Food+Truck" alt="Food Truck Image" class="w-full h-64 object-cover">
-        <div class="flex flex-col justify-center">
-            <div class="flex justify-between p-3 h-20 shadow-inner shadow-slate-700">
-                <div class="flex flex-col ">
-                    <h3 class="text-lg text-slate-50 font-semibold ">Food Truck Name</h3>
-                    <p class="text-xs text-slate-300">Tags: Mexican</p>
-                </div>
-                <p class="text-slate-300 text-sm mb-2">0.5m</p>
-
-            </div>
-            <div class="">
-                <a href="#" class="bg-orange-500 text-white px-4 py-2  font-semibold hover:bg-orange-600 flex w-full justify-between transition-colors">
-                    <p>Order Now</p> 
-                    <mat-icon>add_box</mat-icon>
-                </a>
-            </div>
-        </div>
-      </li>
-      <li class="flex flex-col  bg-zinc-800 rounded-md shadow-sm shadow-slate-600 overflow-hidden">
-        <img src="https://via.placeholder.com/300x200.png?text=Food+Truck" alt="Food Truck Image" class="w-full h-64 object-cover">
-        <div class="flex flex-col justify-center">
-            <div class="flex justify-between p-3 h-20 shadow-inner shadow-slate-700">
-                <div class="flex flex-col ">
-                    <h3 class="text-lg text-slate-50 font-semibold ">Food Truck Name</h3>
-                    <p class="text-xs text-slate-300">Tags: Mexican</p>
-                </div>
-                <p class="text-slate-300 text-sm mb-2">0.5m</p>
-
-            </div>
-            <div class="">
-                <a href="#" class="bg-orange-500 text-white px-4 py-2  font-semibold hover:bg-orange-600 flex w-full justify-between transition-colors">
-                    <p>Order Now</p> 
-                    <mat-icon>add_box</mat-icon>
-                </a>
-            </div>
-        </div>
-      </li>
-      
-    </ul> -->
-
+    <app-map-modal *ngIf="modalOpen" [addr]="selectedAddr" (toggleModal)="toggleModal()"></app-map-modal>
     <div class="flex overflow-x-auto gap-2 pb-10">
         
         <div *ngFor="let b of businessServ.businesses" class="flex-none w-full md:w-96 lg:w-1/4 mx-auto">
-            <app-map-modal *ngIf="modalOpen" [addr]="selectedAddr" (toggleModal)="toggleModal()"></app-map-modal>
             <div class="bg-zinc-800 rounded-md shadow-sm shadow-slate-600 overflow-hidden">
                 <img src="{{b.image}}" alt="Food Truck Image" class="w-full h-64 object-cover">
                 <div class="flex flex-col justify-center">
@@ -88,7 +27,7 @@
                     
                     </div>
                     <div class="">
-                        <a href="#" class="bg-orange-500 text-white px-4 py-2 font-semibold hover:bg-orange-600 flex w-full justify-between transition-colors">
+                        <a routerLink="/business/{{b.id}}" class="bg-orange-500 text-white px-4 py-2 font-semibold hover:bg-orange-600 flex w-full justify-between transition-colors">
                             <p>Order Now</p> 
                             <i class="material-icons">add_box</i>
                         </a>

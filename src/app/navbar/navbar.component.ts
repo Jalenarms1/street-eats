@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginModalService } from '../login-modal.service';
 import { JwtService } from '../jwt.service';
 import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public modalService: LoginModalService, public jwt: JwtService, private router: Router) { }
+  constructor(public modalService: LoginModalService, public jwt: JwtService, private router: Router, public cartS: CartService) { }
 
   ngOnInit(): void {
 

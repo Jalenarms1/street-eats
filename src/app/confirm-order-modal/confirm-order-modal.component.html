@@ -1,0 +1,61 @@
+<div class="fixed z-50 top-0 left-0 w-full h-full bg-gray-500 bg-opacity-50  fade-in pointer-events-auto">
+    <div class="fixed inset-0 bg-black opacity-50 z-40 pointer-events-none"></div>
+
+    <div class="fixed z-50 inset-0 flex items-center justify-center">
+    
+        <div class="fixed z-50   bg-white border-2 border-black rounded-lg shadow-xl px-4 py-5 w-[90%] max-h-full overflow-y-auto fade-in">
+            <div class="absolute top-3 right-3">
+                <button (click)="closeCheckoutModal()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-zinc-100">X</button>
+            </div>
+            <div class="text-center px-2 mt-6  w-fit m-auto pb-1">
+                <h3 class="text-2xl font-bold ">Fake Eats</h3>
+                <p>555 W Henson Ave</p>
+            </div>
+
+            <div class="mt-2">
+                <p class="text-lg font-semibold border-b border-black">Your Order</p>
+                <div *ngFor="let o of cartS.cart.orderItems" class="text-md  py-2  border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex flex-col">
+                        <p class="font-semibold">{{o.foodItem.name}} (x{{o.quantity}})</p>
+                        <p class="text-xs">{{orderItemS.getToppingsStr(o.toppings)}}</p>
+
+                    </div>
+                    <div>
+                        <p>${{o.total.toFixed(2)}}</p>
+                    </div>
+                </div>
+                <div  class="text-md  py-2  flex items-center justify-between">
+                    <div class="flex flex-col">
+                        <p class="font-semibold">Subtotal</p>
+
+                    </div>
+                    <div>
+                        <p>${{cartS.cart.total.toFixed(2)}}</p>
+                    </div>
+                </div>
+                <div  class="text-md  py-2  flex items-center justify-between">
+                    <div class="flex flex-col">
+                        <p class="font-semibold">Tax</p>
+
+                    </div>
+                    <div>
+                        <p>${{(cartS.cart.total * .088).toFixed(2)}}</p>
+                    </div>
+                </div>
+
+                <div  class="text-md  py-2  flex items-center justify-between">
+                    <div class="flex flex-col">
+                        <p class="font-semibold">Order Total</p>
+
+                    </div>
+                    <div>
+                        <p>${{orderS.orderTotal}}</p>
+                    </div>
+                </div>
+                <button (click)="submitOrder()" class="bg-orange-400 w-full py-1 rounded-md mx-auto text-white">Complete Order</button>
+                <button (click)="toggleConfirmCancel()" *ngIf="!showConfirmCancel" class="text-red-500 w-full py-1 rounded-md mx-auto active:shadow active:shadow-red-500 transition-shadow  my-2">Cancel Order</button>
+                <button *ngIf="showConfirmCancel" class="bg-red-500 text-white w-full py-1 rounded-md mx-auto  my-2">Confirm Cancel</button>
+            </div>
+        </div>
+    </div>
+  </div>

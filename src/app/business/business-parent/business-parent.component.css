@@ -1,0 +1,40 @@
+
+.left-slide {
+    /* Set initial state to below screen */
+    transform: translate(-100%, 0);
+    /* Animate modal into view */
+    animation: slide-from-left 0.5s ease-out forwards;
+    
+  }
+  
+  /* Define animation */
+  @keyframes slide-from-left {
+    from {
+      transform: translate(-100%, 0);
+    }
+    to {
+      transform: translate(0, 0);
+    }
+}
+
+.slide-out {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-out;
+}
+  
+
+  /* Add this to your CSS file */
+/* .close-modal {
+    animation: slideDown .5s ease-out;
+  }
+  
+  @keyframes slideDown {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  } */
+  
+  

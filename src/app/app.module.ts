@@ -15,6 +15,11 @@ import { OrderModule } from './order/order.module';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
 import { UserModule } from './user/user.module';
+import { RouterModule } from '@angular/router';
+import { BusinessModule } from './business/business.module';
+import { LoginPromptComponent } from './home/login-prompt/login-prompt.component';
+import { OrderItemModalComponent } from './business/order-item-modal/order-item-modal.component';
+import { ConfirmOrderModalComponent } from './confirm-order-modal/confirm-order-modal.component';
 
 
 @NgModule({
@@ -24,6 +29,9 @@ import { UserModule } from './user/user.module';
     LoginModalComponent,
     HomeHeadingComponent,
     CheckoutComponent,
+    LoginPromptComponent,
+    OrderItemModalComponent,
+    ConfirmOrderModalComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,9 @@ import { UserModule } from './user/user.module';
     FormsModule,
     CartModule,
     OrderModule,
-    MatIconModule
+    BusinessModule,
+    MatIconModule,
+    RouterModule
   ],
   exports:[MatIconModule],
   providers: [

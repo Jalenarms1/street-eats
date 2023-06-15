@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BusinessService } from 'src/app/business.service';
+import { Business } from 'src/models/Business';
 
 
 @Component({
@@ -8,13 +9,14 @@ import { BusinessService } from 'src/app/business.service';
   styleUrls: ['./shop-list.component.css']
 })
 export class ShopListComponent implements OnInit {
-
+  businesses: Business[] = []
   modalOpen: boolean = false
   selectedAddr: string = ''
 
   constructor(public businessServ: BusinessService) { }
 
   ngOnInit(): void {
+    
   }
 
   

@@ -22,7 +22,6 @@ export class JwtService {
   saveToken(token: string): void {
     localStorage.setItem(`${environment.token_pre}_token`, token);
     this.isAuthenticated$.next(true);
-    this.router.navigateByUrl('/');
   }
 
   // remove JWT token from local storage

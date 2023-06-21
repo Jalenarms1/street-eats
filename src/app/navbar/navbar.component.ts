@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginModalService } from '../login-modal.service';
-import { JwtService } from '../jwt.service';
+import { LoginModalService } from '../services/login-modal.service';
+import { JwtService } from '../services/jwt.service';
 import { Router } from '@angular/router';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-navbar',

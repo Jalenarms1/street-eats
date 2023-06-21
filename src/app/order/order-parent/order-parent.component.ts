@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtService } from 'src/app/jwt.service';
-import { LoginModalService } from 'src/app/login-modal.service';
+import { JwtService } from 'src/app/services/jwt.service';
+import { LoginModalService } from 'src/app/services/login-modal.service';
 
 @Component({
   selector: 'app-order-parent',

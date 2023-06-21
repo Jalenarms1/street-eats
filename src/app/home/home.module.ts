@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
     HomeParentComponent,
     ShopListComponent,
     RecentlyViewedComponent,
-    MapModalComponent
+    
   ],
   imports: [
     CommonModule,

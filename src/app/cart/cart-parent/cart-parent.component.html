@@ -21,8 +21,11 @@
             </div>
             <div class="col-span-5">
                 <h4 class="text-zinc-100 font-semibold text-base">{{ci.foodItem.name}}</h4>
-                <p class="text-zinc-300 text-xs">{{orderItemS.getToppingsStr(ci.toppings)}}</p>
-                <p *ngIf="ci.toppings.length < 1" class="text-zinc-300 text-sm">No toppings</p>
+                <div *ngIf="ci.foodItem.type != 'Drink'">
+                    <p class="text-zinc-300 text-xs">{{orderItemS.getToppingsStr(ci.toppings)}}</p>
+                    <p *ngIf="ci.toppings.length < 1" class="text-zinc-300 text-sm">No toppings</p>
+
+                </div>
                 <div class="flex items-center gap-2 text-white text-lg mt-1 font-semibold">
                     <mat-icon (click)="cartS.removeFromCart(i)" class=" w-5 h-5 flex justify-center items-center rounded-sm text-red-500">delete_forever</mat-icon>
                     <p (click)="cartS.updQuantity(-1, i)" class="bg-orange-400 w-5 h-5 flex justify-center items-center rounded-sm pb-1">-</p>

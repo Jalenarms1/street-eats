@@ -70,13 +70,10 @@ export class CartService {
   updQuantity(incrementBy: number, index: number) {
     if (this.cart.orderItems[index].quantity == 1 && incrementBy == -1) return
     this.cart.orderItems[index].quantity += incrementBy
-    if (incrementBy == 1) {
-      this.cart.orderItems[index].total += this.cart.orderItems[index].foodItem.price
-    } else if(incrementBy == -1) {
-      this.cart.orderItems[index].total -= this.cart.orderItems[index].foodItem.price
-    }
+    this.cart.orderItems[index].total = (this.cart.orderItems[index].foodItem.price + this.cart.orderItems[index].toppings.reduce((acc, obj) => acc += obj.topping?.price as number, 0)) * this.cart.orderItems[index].quantity
 
     this.cart.total = parseFloat(this.cart.orderItems.reduce((acc, obj) => acc += obj.total, 0).toFixed(2))
+    this.setCart(this.cart)
   }
 
   

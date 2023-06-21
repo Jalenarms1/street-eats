@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
-import { LoginModalService } from 'src/app/login-modal.service';
+import { LoginModalService } from 'src/app/services/login-modal.service';
 
 @Component({
   selector: 'app-login-prompt',

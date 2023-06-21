@@ -2,7 +2,7 @@
 
 <div class="fixed z-50 inset-0 flex items-center justify-center">
 
-    <div class="fixed z-50   bg-orange-400 border-2 border-black rounded-lg shadow-xl  pt-5 w-[90%] max-h-[600px] overflow-y-auto fade-in">
+    <div class="fixed z-50   bg-orange-400 border-2 border-black rounded-lg shadow-xl  pt-5 w-[90%]  cst-max-h overflow-y-auto fade-in">
         <div class="absolute top-3 right-3">
             <button (click)="orderItemS.toggleModal()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-zinc-100">X</button>
         </div>
@@ -19,36 +19,39 @@
                     <img src="{{orderItemS.selectedItem.image}}" alt="selected-food-image" class="w-20 h-20 rounded-md">
                 </div> 
             </div>
-            <h4 class="text-lg font-semibold mb-2">Toppings:</h4>
-            <form class="mb-4 overflow-y-auto h-60 shadow-sm shadow-zinc-800 p-2 bg-zinc-100">
-                <div class="flex flex-wrap gap-3">
-                    <div *ngFor="let tp of businessServ.currBusiness.toppings" class="w-full sm:w-1/2 md:w-1/3 flex flex-col gap-2 border-b border-zinc-400 pb-2">
-                        <div class="flex items-center gap-5">
-                            <label class="  flex items-center w-fit">
-                                <input (input)="onToppingSelect(tp)" type="checkbox" name="limon" class="mr-2 w-4 h-4">
-                                <span class="text-sm font-semibold ">{{tp.name}}:</span>
-                            </label>
-                            
-                            <p>(+ ${{tp.price.toFixed(2)}})</p>
-                            
-                        </div>
-                        <div *ngIf="showToppingOptTo.includes(tp.id)" class="flex gap-2">
-                            <div class="flex gap-2">
-                                <input (input)="onSideOptToggle(tp.id, 'Y')" type="radio" [name]="'onSideCheck-' + tp.id"  class="onSideCheck" checked>
-                                <label for="onSideCheck">On Side</label>
-    
-                            </div>
-                            <div class="flex gap-2">
-                                <input (input)="onSideOptToggle(tp.id, 'N')" type="radio" [name]="'onSideCheck-' + tp.id"  class="onTopCheck">
-                                <label for="onSideCheck">On Top</label>
-    
-                            </div>
+            <div *ngIf="orderItemS.selectedItem.type !== 'Drink'">
 
+                <h4 class="text-lg font-semibold mb-2">Toppings:</h4>
+                <form class="mb-4 overflow-y-auto h-60 shadow-sm shadow-zinc-800 p-2 bg-zinc-100">
+                    <div class="flex flex-wrap gap-3">
+                        <div *ngFor="let tp of businessServ.currBusiness.toppings" class="w-full sm:w-1/2 md:w-1/3 flex flex-col gap-2 border-b border-zinc-400 pb-2">
+                            <div class="flex items-center gap-5">
+                                <label class="  flex items-center w-fit">
+                                    <input (input)="onToppingSelect(tp)" type="checkbox" name="limon" class="mr-2 w-4 h-4">
+                                    <span class="text-sm font-semibold ">{{tp.name}}:</span>
+                                </label>
+                                
+                                <p>(+ ${{tp.price.toFixed(2)}})</p>
+                                
+                            </div>
+                            <div *ngIf="showToppingOptTo.includes(tp.id)" class="flex gap-2">
+                                <div class="flex gap-2">
+                                    <input (input)="onSideOptToggle(tp.id, 'Y')" type="radio" [name]="'onSideCheck-' + tp.id"  class="onSideCheck" checked>
+                                    <label for="onSideCheck">On Side</label>
+        
+                                </div>
+                                <div class="flex gap-2">
+                                    <input (input)="onSideOptToggle(tp.id, 'N')" type="radio" [name]="'onSideCheck-' + tp.id"  class="onTopCheck">
+                                    <label for="onSideCheck">On Top</label>
+        
+                                </div>
+    
+                            </div>
                         </div>
+                        
                     </div>
-                    
-                </div>
-            </form>
+                </form>
+            </div>
             
             
             <div [ngClass]="{'block': showAddToCartWarning, 'hidden': !showAddToCartWarning}">

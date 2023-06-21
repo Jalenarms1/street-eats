@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BusinessService } from 'src/app/business.service';
+import { BusinessService } from 'src/app/services/business.service';
 import { Business } from 'src/models/Business';
 import { FoodItem } from 'src/models/FoodItem';
 
@@ -25,7 +25,10 @@ export class BusinessParentComponent implements OnInit {
     this.businessId = this.route.snapshot.paramMap.get('id') as string
     this.businessServ.getBusiness(this.businessId) 
     window.scrollTo(0,0)   
+
   }
+
+ 
   
   toggleTab(tab: string) {
     switch(tab) {

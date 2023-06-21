@@ -19,9 +19,27 @@ export class BusinessService {
       
       this.allBusinesses = res
       this.businesses = [...this.allBusinesses]
+
+
     })
 
     
+  }
+
+  updateRecentlyViewed() {
+    const savedRV = JSON.parse(localStorage.getItem("RV_StreetEats") as string)
+    let updatedRV: Business[] = []
+    if(!savedRV) {
+      updatedRV = [this.currBusiness]
+    } else {
+      if(!savedRV.map((i: Business) => i.id).includes(this.currBusiness.id)) {
+
+        updatedRV = [...savedRV, this.currBusiness]
+      } else {
+        updatedRV = [...savedRV]
+      }
+    }
+    localStorage.setItem("RV_StreetEats", JSON.stringify(updatedRV))
   }
 
   getBusiness(id: string){
@@ -30,6 +48,8 @@ export class BusinessService {
 
       this.currBusiness = res as Business
       
+      this.updateRecentlyViewed()
+
     })
 
   }

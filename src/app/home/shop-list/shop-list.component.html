@@ -9,7 +9,7 @@
         <mat-icon class="text-slate-50">my_location</mat-icon>
     </div>
 
-    <app-map-modal *ngIf="modalOpen" [addr]="selectedAddr" (toggleModal)="toggleModal()"></app-map-modal>
+    <!-- <app-map-modal *ngIf="modalOpen" [addr]="selectedAddr" (toggleModal)="toggleModal()"></app-map-modal> -->
     <div class="flex overflow-x-auto gap-2 pb-10">
         
         <div *ngFor="let b of businessServ.businesses" class="flex-none w-full md:w-96 lg:w-1/4 mx-auto">
@@ -23,7 +23,7 @@
                         </div>
                         <!-- <p class="text-slate-300 text-sm mb-2">0.5m</p> -->
                         <!-- AIzaSyB4k-UcLnZWvmJAE625JI1aWofPZaJlcz0 -->
-                        <button (click)="toggleModal(b.address)" class="text-xs text-white bg-slate-500 rounded-md px-2 py-1">{{b.address}}</button>
+                        <button (click)="mapModalS.openModal(b.address)" class="text-xs text-white bg-slate-500 rounded-md px-2 py-1">{{b.address}}</button>
                     
                     </div>
                     <div class="">

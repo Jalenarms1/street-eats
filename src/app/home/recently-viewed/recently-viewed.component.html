@@ -1,29 +1,32 @@
 <div class="w-[90%] mx-auto mt-5">
-  <h2 class="text-xl font-semibold mb-4 text-white">Recently Viewed Food</h2>
+  <h2 class="text-2xl mb-6 text-white">Recently Viewed</h2>
   <ul class="space-y-4">
-    <li class="bg-white p-4 rounded-lg shadow">
+    <li *ngFor="let rv of recentlyViewed" class="  pb-2 border-b border-zinc-400">
+      <a routerLink="/business/{{rv.id}}" class="flex items-center gap-2">
+        <div>
+          <h3 class=" text-sm text-zinc-100">{{rv.name}}</h3>
+        </div>
+      </a>
+      <p (click)="mapModalS.openModal(rv.address)" class="text-gray-400 text-sm active:text-gray-300 w-fit">{{rv.address}}</p>
+    </li>
+    <li *ngIf="recentlyViewed.length < 1" class="text-zinc-200 text-sm">None yet.</li>
+    <!-- <li class="  pb-2 border-b border-zinc-400">
       <a href="#" class="flex items-center gap-2">
         <div>
-          <h3 class="font-bold text-md">Example Shop 1</h3>
-          <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3 class=" text-sm text-zinc-100">Example Shop 1</h3>
         </div>
       </a>
+      <p (click)="mapModalS.openModal('555 W Hampton Ave')" class="text-gray-400 text-sm active:text-gray-300">555 W Ave</p>
     </li>
-    <li class="bg-white p-4 rounded-lg shadow">
-      <a href="#" class="flex items-center space-x-4">
+    <li class="  pb-2 border-b border-zinc-400">
+      <a href="#" class="flex items-center gap-2">
         <div>
-          <h3 class="font-bold text-md">Example Shop 2</h3>
-          <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3 class=" text-sm text-zinc-100">Example Shop 1</h3>
         </div>
       </a>
-    </li>
-    <li class="bg-white p-4 rounded-lg shadow">
-      <a href="#" class="flex items-center space-x-4">
-        <div>
-          <h3 class="font-bold text-md">Example Shop 3</h3>
-          <p class="text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </a>
-    </li>
+      <p (click)="mapModalS.openModal('555 W Hampton Ave')" class="text-gray-400 text-sm active:text-gray-300">555 W Ave</p>
+    </li> -->
+    
+    
   </ul>
 </div>

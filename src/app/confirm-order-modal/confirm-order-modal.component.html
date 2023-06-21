@@ -3,7 +3,7 @@
 
     <div class="fixed z-50 inset-0 flex items-center justify-center">
     
-        <div class="fixed z-50   bg-white border-2 border-black rounded-lg shadow-xl px-4 py-5 w-[90%] max-h-full overflow-y-auto fade-in">
+        <div class="fixed z-50   bg-white border-2 border-black rounded-lg shadow-xl px-4 py-5 w-[90%] max-h-[600px] overflow-y-auto fade-in">
             <div class="absolute top-3 right-3">
                 <button (click)="closeCheckoutModal()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-zinc-100">X</button>
             </div>
@@ -52,9 +52,10 @@
                         <p>${{orderS.orderTotal}}</p>
                     </div>
                 </div>
-                <button (click)="submitOrder()" class="bg-orange-400 w-full py-1 rounded-md mx-auto text-white">Complete Order</button>
+                <div id="paypal-button-container"></div>
+                <!-- <button (click)="makePayment()" class="bg-orange-400 w-full py-1 rounded-md mx-auto text-white">Complete Order</button> -->
                 <button (click)="toggleConfirmCancel()" *ngIf="!showConfirmCancel" class="text-red-500 w-full py-1 rounded-md mx-auto active:shadow active:shadow-red-500 transition-shadow  my-2">Cancel Order</button>
-                <button *ngIf="showConfirmCancel" class="bg-red-500 text-white w-full py-1 rounded-md mx-auto  my-2">Confirm Cancel</button>
+                <button (click)="confirmCancel()" *ngIf="showConfirmCancel" class="bg-red-500 text-white w-full py-1 rounded-md mx-auto  my-2">Confirm Cancel</button>
             </div>
         </div>
     </div>

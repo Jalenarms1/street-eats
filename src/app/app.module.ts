@@ -20,6 +20,7 @@ import { BusinessModule } from './business/business.module';
 import { LoginPromptComponent } from './home/login-prompt/login-prompt.component';
 import { OrderItemModalComponent } from './business/order-item-modal/order-item-modal.component';
 import { ConfirmOrderModalComponent } from './confirm-order-modal/confirm-order-modal.component';
+import { MapModalComponent } from './home/map-modal/map-modal.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ConfirmOrderModalComponent } from './confirm-order-modal/confirm-order-
     CheckoutComponent,
     LoginPromptComponent,
     OrderItemModalComponent,
-    ConfirmOrderModalComponent
+    ConfirmOrderModalComponent,
+    MapModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { LoginModalService } from '../login-modal.service';
+import { LoginModalService } from '../services/login-modal.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 import { User } from 'src/models/User';
-import { JwtService } from '../jwt.service';
+import { JwtService } from '../services/jwt.service';
 import { Router } from '@angular/router';
 
 

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { BusinessService } from 'src/app/business.service';
-import { JwtService } from 'src/app/jwt.service';
-import { UserService } from 'src/app/user.service';
+import { BusinessService } from 'src/app/services/business.service';
+import { JwtService } from 'src/app/services/jwt.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home-parent',

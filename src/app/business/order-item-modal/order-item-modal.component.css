@@ -113,3 +113,26 @@
     transform: translate(-50%, -50%);
   }
    */
+
+
+
+@media screen and (max-height: 800px) {
+  .cst-max-h{
+    max-height: 600px;
+
+  }
+}
+
+@media screen and (max-height: 568px) {
+  .cst-max-h{
+    max-height: 550px;
+
+  }
+}
+
+@media screen and (max-height: 480px) {
+  .cst-max-h{
+    max-height: 450px;
+
+  }
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { BusinessService } from 'src/app/business.service';
-import { CartService } from 'src/app/cart.service';
-import { OrderItemService } from 'src/app/order-item.service';
+import { BusinessService } from 'src/app/services/business.service';
+import { CartService } from 'src/app/services/cart.service';
+import { OrderItemService } from 'src/app/services/order-item.service';
 import { FoodItem } from 'src/models/FoodItem';
 import { OrderItemTopping } from 'src/models/OrderItemTopping';
 import { Topping } from 'src/models/Topping';
@@ -109,15 +109,16 @@ export class OrderItemModalComponent implements OnInit {
     if(this.orderItemS.orderItem.quantity == 1 && incrementBy == -1) return
     
     this.orderItemS.orderItem.quantity = this.orderItemS.orderItem.quantity + incrementBy
+    
+    this.orderItemS.orderItem.total = (this.selectedToppings.reduce((acc, obj) => acc += obj.price, 0) + this.orderItemS.orderItem.foodItem.price) * this.orderItemS.orderItem.quantity
 
-
-    const quanXItemPrice = this.orderItemS.orderItem.quantity * this.orderItemS.orderItem.foodItem.price
-    console.log(quanXItemPrice);
-    console.log(this.orderItemS.orderItem.total);
+    // const quanXItemPrice = this.orderItemS.orderItem.quantity * this.orderItemS.orderItem.foodItem.price
+    // console.log(quanXItemPrice);
+    // console.log(this.orderItemS.orderItem.total);
     
     
     
-    this.orderItemS.orderItem.total = this.selectedToppings.reduce((acc, obj) => acc += obj.price, 0) + quanXItemPrice
+    // this.orderItemS.orderItem.total = this.selectedToppings.reduce((acc, obj) => acc += obj.price, 0) + quanXItemPrice
   }
 
 }

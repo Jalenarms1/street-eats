@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BusinessService } from 'src/app/business.service';
+import { BusinessService } from 'src/app/services/business.service';
+import { MapModalService } from 'src/app/services/map-modal.service';
 import { Business } from 'src/models/Business';
 
 
@@ -13,7 +14,7 @@ export class ShopListComponent implements OnInit {
   modalOpen: boolean = false
   selectedAddr: string = ''
 
-  constructor(public businessServ: BusinessService) { }
+  constructor(public businessServ: BusinessService, public mapModalS: MapModalService) { }
 
   ngOnInit(): void {
     

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MapModalService } from 'src/app/services/map-modal.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -9,13 +10,14 @@ import { environment } from 'src/environments/environment';
 })
 export class MapModalComponent implements OnInit {
   gmApiKey: string = environment.gmApiKey
-  @Input() addr: string = ''
+  // @Input() addr: string = ''
   @Output() toggleModal = new EventEmitter<void>()
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer, public mapModalS: MapModalService) { }
 
   ngOnInit(): void {
   }
+
 
   sanitizeUrl(addr: string) {
     console.log(addr);
@@ -28,6 +30,6 @@ export class MapModalComponent implements OnInit {
   }
 
   closeModal() {
-    this.toggleModal.emit()
+    this.mapModalS.closeMapModal()
   }
 }

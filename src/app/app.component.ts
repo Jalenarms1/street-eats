@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { LoginModalService } from './login-modal.service';
+import { LoginModalService } from './services/login-modal.service';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { JwtService } from './jwt.service';
-import { UserService } from './user.service';
-import { OrderItemService } from './order-item.service';
-import { BusinessService } from './business.service';
-import { OrderService } from './order.service';
+import { JwtService } from './services/jwt.service';
+import { UserService } from './services/user.service';
+import { OrderItemService } from './services/order-item.service';
+import { BusinessService } from './services/business.service';
+import { OrderService } from './services/order.service';
+import { MapModalService } from './services/map-modal.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { OrderService } from './order.service';
   
 })
 export class AppComponent {
-  constructor(public modalService: LoginModalService, public jwt: JwtService, private user: UserService, public orderItemS: OrderItemService, private businessServ: BusinessService, public orderS: OrderService) {
+  constructor(public modalService: LoginModalService, public jwt: JwtService, private user: UserService, public orderItemS: OrderItemService, private businessServ: BusinessService, public orderS: OrderService, public mapModalS: MapModalService) {
     this.user.getMe()
     this.businessServ.getBuinesses()
   }

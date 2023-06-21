@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { JwtService } from 'src/app/jwt.service';
-import { UserService } from 'src/app/user.service';
+import { JwtService } from 'src/app/services/jwt.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-page',

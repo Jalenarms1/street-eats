@@ -31,14 +31,27 @@ export class BusinessParentComponent implements OnInit {
  
   
   toggleTab(tab: string) {
+    const tabEle = document.getElementById(`tab-${tab}`)
+    console.log(`tab-${tab.toLowerCase()}`);
+    console.log(tabEle);
+    
+
+    if(tabEle?.classList.contains("slide-open")) {
+      tabEle?.classList.remove("slide-open")
+      tabEle?.classList.add("slide-close")
+    } else {
+      tabEle?.classList.remove("slide-close")
+      tabEle?.classList.add("slide-open")
+    }
     switch(tab) {
-      case 'entrees':
+      case 'entree':
+        
         this.showEntrees = !this.showEntrees;
         break
-      case 'sides':
+      case 'side':
         this.showSides = !this.showSides;
         break
-      case 'drinks':
+      case 'drink':
         this.showDrinks = !this.showDrinks;
         break
 

@@ -21,6 +21,8 @@ import { LoginPromptComponent } from './home/login-prompt/login-prompt.component
 import { OrderItemModalComponent } from './business/order-item-modal/order-item-modal.component';
 import { ConfirmOrderModalComponent } from './confirm-order-modal/confirm-order-modal.component';
 import { MapModalComponent } from './home/map-modal/map-modal.component';
+import { OrderSuccessModalComponent } from './order-success-modal/order-success-modal.component';
+import { OrderErrorModalComponent } from './order-error-modal/order-error-modal.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { MapModalComponent } from './home/map-modal/map-modal.component';
     LoginPromptComponent,
     OrderItemModalComponent,
     ConfirmOrderModalComponent,
-    MapModalComponent
+    MapModalComponent,
+    OrderSuccessModalComponent,
+    OrderErrorModalComponent
   ],
   imports: [
     BrowserModule,

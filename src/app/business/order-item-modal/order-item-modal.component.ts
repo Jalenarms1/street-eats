@@ -29,6 +29,7 @@ export class OrderItemModalComponent implements OnInit {
     this.orderItemS.orderItem.foodItemId = this.orderItemS.selectedItem.id
     this.orderItemS.orderItem.foodItem = this.orderItemS.selectedItem
     this.orderItemS.orderItem.quantity = 1
+    this.orderItemS.orderItem.specialInstruction = ''
 
 
   }

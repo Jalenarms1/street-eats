@@ -1,6 +1,5 @@
-<div class="transition-opacity relative">
-    <!-- <app-order-item-modal *ngIf="orderItemModalOpen" [orderItemModalOpen]="orderItemModalOpen" [selectedFoodItem]="selectedFoodItem" (toggleModal)="toggleModal()"></app-order-item-modal> -->
-    <div (click)="onFoodItemSelect(fi)" *ngFor="let fi of filteredFoodTypeArr(businessServ.currBusiness.foodItems, type)" class=" bg-white rounded-md shadow-md overflow-hidden flex items-start m-2 gap-2 relative">
+<div class="tab slide-open relative" id="tab-{{lowerCase(type)}}">
+    <div (click)="onFoodItemSelect(fi)" *ngFor="let fi of filteredFoodTypeArr(businessServ.currBusiness.foodItems, type)" class=" bg-white rounded-md shadow-md overflow-hidden flex items-start m-2 gap-2 relative ">
         <img src="{{fi.image}}" alt="Food Icon" class=" h-28 cst-img-shadow" style="max-width: 100px; min-width: 100px;">
         <div class="pt-2 pr-2 w-full">
             <div class="flex justify-between">
@@ -11,5 +10,17 @@
             <p class="text-gray-600 text-sm">{{fi.description}}</p>
         </div>
     </div>
+    <div (click)="onFoodItemSelect(fi)" *ngFor="let fi of filteredFoodTypeArr(businessServ.currBusiness.foodItems, type)" class=" bg-white rounded-md shadow-md overflow-hidden flex items-start m-2 gap-2 relative ">
+        <img src="{{fi.image}}" alt="Food Icon" class=" h-28 cst-img-shadow" style="max-width: 100px; min-width: 100px;">
+        <div class="pt-2 pr-2 w-full">
+            <div class="flex justify-between">
+                <h2 class="text-md font-semibold">{{fi.name}}</h2>
+                <p class="text-sm font-semibold text-orange-900">${{fi.price.toFixed(2)}}</p>
+
+            </div>
+            <p class="text-gray-600 text-sm">{{fi.description}}</p>
+        </div>
+    </div>
+    
 </div>
 

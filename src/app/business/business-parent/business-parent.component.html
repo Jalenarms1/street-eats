@@ -25,33 +25,36 @@
     </header>
     
     <div class="tab-container pb-20 relative">
-        <div
-          class="tab cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
-          [class.active]="showEntrees"
-          (click)="toggleTab('entrees')"
-        >
-            <mat-icon *ngIf="!showEntrees">expand_more</mat-icon>
-            <mat-icon *ngIf="showEntrees">expand_less</mat-icon>
-          <p>Entrees</p>
-        </div> 
-        <app-food-items [filteredFoodTypeArr]="filteredFoodTypeArr" *ngIf="showEntrees" type="Entree"></app-food-items>
-        <div class="tab cursor-pointer py-2 text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center" [class.active]="showSides" (click)="toggleTab('sides')">
-            <mat-icon *ngIf="!showSides">expand_more</mat-icon>
-            <mat-icon *ngIf="showSides">expand_less</mat-icon>
-          <p>Sides</p>
-        </div>
-        <app-food-items [filteredFoodTypeArr]="filteredFoodTypeArr" *ngIf="showSides" type="Side"></app-food-items>
-        <div
-          class="tab cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
-          [class.active]="showDrinks"
-          (click)="toggleTab('drinks')"
-        >
-            <mat-icon *ngIf="!showDrinks">expand_more</mat-icon>
-            <mat-icon *ngIf="showDrinks">expand_less</mat-icon>
-          <p>Drinks</p>
-        </div>
-        <app-food-items [filteredFoodTypeArr]="filteredFoodTypeArr" *ngIf="showDrinks" type="Drink"></app-food-items>
-        
+      <div
+        class=" tab-entrees cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
+        [class.active]="showEntrees"
+        (click)="toggleTab('entree')"
+      >
+          <mat-icon *ngIf="!showEntrees">expand_more</mat-icon>
+          <mat-icon *ngIf="showEntrees">expand_less</mat-icon>
+        <p>Entrees</p>
+      </div> 
+      
+        <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Entree"></app-food-items>
+
+      
+      <div class=" tab-sides cursor-pointer py-2 text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center" [class.active]="showSides" (click)="toggleTab('side')">
+          <mat-icon *ngIf="!showSides">expand_more</mat-icon>
+          <mat-icon *ngIf="showSides">expand_less</mat-icon>
+        <p>Sides</p>
+      </div>
+      <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Side"></app-food-items>
+      <div
+        class=" tab-drinks cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
+        [class.active]="showDrinks"
+        (click)="toggleTab('drink')"
+      >
+          <mat-icon *ngIf="!showDrinks">expand_more</mat-icon>
+          <mat-icon *ngIf="showDrinks">expand_less</mat-icon>
+        <p>Drinks</p>
+      </div>
+      <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Drink"></app-food-items>
+      
         
     </div>
 </div>

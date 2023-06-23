@@ -18,5 +18,6 @@ export class AppComponent {
   constructor(public modalService: LoginModalService, public jwt: JwtService, private user: UserService, public orderItemS: OrderItemService, private businessServ: BusinessService, public orderS: OrderService, public mapModalS: MapModalService) {
     this.user.getMe()
     this.businessServ.getBuinesses()
+    
   }
 }

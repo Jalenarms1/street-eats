@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BusinessService } from 'src/app/services/business.service';
 import { OrderItemService } from 'src/app/services/order-item.service';
+import { OrderService } from 'src/app/services/order.service';
 import { FoodItem } from 'src/models/FoodItem';
 
 @Component({
@@ -16,15 +17,21 @@ export class FoodItemsComponent implements OnInit {
   orderItemModalOpen = false;
 
   selectedFoodItem: FoodItem = {} as FoodItem
-  constructor(public businessServ: BusinessService, public orderItemS: OrderItemService) { }
+  constructor(public businessServ: BusinessService, public orderItemS: OrderItemService, public orderS: OrderService) { }
 
   ngOnInit(): void {
+    
   }
 
   onFoodItemSelect(foodItem: FoodItem) {
+    console.log(this.orderS.orderSuccessModalOpen)
     this.orderItemS.toggleModal()
     this.orderItemS.setSelectedItem(foodItem)
     
+  }
+
+  lowerCase(word: string) {
+    return word.toLowerCase()
   }
 
   // toggleModal() {

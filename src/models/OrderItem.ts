@@ -10,6 +10,7 @@ export interface OrderItem {
     foodItemId: string,
     foodItem: FoodItem,
     quantity: number,
+    specialInstruction: string,
     toppings: OrderItemTopping[],
     total: number
 }

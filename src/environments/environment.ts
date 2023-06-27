@@ -7,7 +7,8 @@ export const environment = {
   apiUrl: 'https://localhost:7027',
   token_pre: 'streeteats_dev',
   cartToken: 'streetEatsCart_dev',
-  gmApiKey: 'AIzaSyDR1Fc2FYQIRTZKU1OfZE49gl4Yol6q0r0'
+  gmApiKey: 'AIzaSyDR1Fc2FYQIRTZKU1OfZE49gl4Yol6q0r0',
+  paypalClientId: 'AadSgo41_LsFHD22BFAiL5_Qt-2tWx3tnwIBDJ9fAgcmp_OroQ-GqOXsSSHZOml9s7ppt_xFZLnt4OrL'
 };
 
 /*

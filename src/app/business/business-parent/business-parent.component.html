@@ -1,62 +1,106 @@
-<div class="left-slide ">
+<div class="left-slide pb-28">
 
-    <header class="bg-orange-950 text-white py-4">
-        <div class="container mx-auto flex  justify-between px-4">
-            <div class="flex gap-3">
-                <img src="{{businessServ.currBusiness.image}}" alt="Business Icon" class="w-20 h-20 rounded-md">
-                <div class="flex flex-col ">
-                    <div class="flex items-center">
-                      <h1 class="text-lg font-bold ">{{businessServ.currBusiness.name}}</h1>
-                    </div>
-                    <div class="text-sm">
-                      <p class="text-zinc-100">{{businessServ.currBusiness.address}}</p>
-                    </div>
-                    <div class="stars flex">
-                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
-                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
-                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
-                        <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
-                        <mat-icon class="text-sm  m-0">star</mat-icon>
-                    </div>
+  <header class="bg-orange-950 text-white py-4">
+      <div class="container mx-auto flex  justify-between px-4">
+          <div class="flex gap-3">
+              <img src="{{businessServ.currBusiness.image}}" alt="Business Icon" class="w-20 h-20 rounded-md">
+              <div class="flex flex-col ">
+                  <div class="flex items-center">
+                    <h1 class="text-lg font-bold ">{{businessServ.currBusiness.name}}</h1>
+                  </div>
+                  <div class="text-sm">
+                    <p class="text-zinc-100">{{businessServ.currBusiness.address}}</p>
+                  </div>
+                  <div class="stars flex">
+                      <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                      <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                      <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                      <mat-icon class="text-sm text-yellow-300 m-0">star</mat-icon>
+                      <mat-icon class="text-sm  m-0">star</mat-icon>
+                  </div>
+  
+              </div>
+          </div>
+      </div>
+  </header>
     
-                </div>
-            </div>
-        </div>
-    </header>
+  <div class="tab-container pb-10 relative">
+    <div
+      class=" tab-entrees cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
+      [class.active]="showEntrees"
+      (click)="toggleTab('entree')"
+    >
+        <mat-icon *ngIf="!showEntrees">expand_more</mat-icon>
+        <mat-icon *ngIf="showEntrees">expand_less</mat-icon>
+      <p>Entrees</p>
+    </div> 
     
-    <div class="tab-container pb-20 relative">
-      <div
-        class=" tab-entrees cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
-        [class.active]="showEntrees"
-        (click)="toggleTab('entree')"
-      >
-          <mat-icon *ngIf="!showEntrees">expand_more</mat-icon>
-          <mat-icon *ngIf="showEntrees">expand_less</mat-icon>
-        <p>Entrees</p>
-      </div> 
-      
-        <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Entree"></app-food-items>
+      <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Entree"></app-food-items>
 
-      
-      <div class=" tab-sides cursor-pointer py-2 text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center" [class.active]="showSides" (click)="toggleTab('side')">
-          <mat-icon *ngIf="!showSides">expand_more</mat-icon>
-          <mat-icon *ngIf="showSides">expand_less</mat-icon>
-        <p>Sides</p>
-      </div>
-      <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Side"></app-food-items>
-      <div
-        class=" tab-drinks cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
-        [class.active]="showDrinks"
-        (click)="toggleTab('drink')"
-      >
-          <mat-icon *ngIf="!showDrinks">expand_more</mat-icon>
-          <mat-icon *ngIf="showDrinks">expand_less</mat-icon>
-        <p>Drinks</p>
-      </div>
-      <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Drink"></app-food-items>
-      
-        
+    
+    <div class=" tab-sides cursor-pointer py-2 text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center" [class.active]="showSides" (click)="toggleTab('side')">
+        <mat-icon *ngIf="!showSides">expand_more</mat-icon>
+        <mat-icon *ngIf="showSides">expand_less</mat-icon>
+      <p>Sides</p>
     </div>
+    <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Side"></app-food-items>
+    <div
+      class=" tab-drinks cursor-pointer py-2  text-orange-900 font-semibold bg-orange-400 rounded-sm border border-zinc-600 flex items-center"
+      [class.active]="showDrinks"
+      (click)="toggleTab('drink')"
+    >
+        <mat-icon *ngIf="!showDrinks">expand_more</mat-icon>
+        <mat-icon *ngIf="showDrinks">expand_less</mat-icon>
+      <p>Drinks</p>
+    </div>
+    <app-food-items  [filteredFoodTypeArr]="filteredFoodTypeArr"  type="Drink"></app-food-items>
+    
+      
+  </div>
+  <div class="hours mb-8">
+    <div class="w-fit  mx-auto border-b border-zinc-300 mb-5 flex  items-center gap-2">
+      <h1 class="text-zinc-100 text-3xl font-semibold py-2 text-center">Hours</h1>
+      <mat-icon class="text-green-500">schedule</mat-icon>
+    </div>
+    <div class="flex flex-col items-center">
+      <div class="flex justify-between text-sm gap-2 text-zinc-100 ">
+        <div class="day">Mon:</div>
+        <div class="time">6:00pm - 10:00pm</div>
+      </div>
+      <div class="flex justify-between text-sm gap-2 text-zinc-100">
+        <div class="day"></div>
+        <div class="time"></div>
+      </div>
+      <div class="flex justify-between text-sm gap-2 text-zinc-100">
+        <div class="day"></div>
+        <div class="time"></div>
+      </div>
+      <div class="flex justify-between text-sm gap-2 text-zinc-100">
+        <div class="day"></div>
+        <div class="time"></div>
+      </div>
+      <div class="flex justify-between text-sm gap-2 text-zinc-100">
+        <div class="day"></div>
+        <div class="time"></div>
+      </div>
+      <div class="flex justify-between text-sm gap-2 text-zinc-100">
+        <div class="day"></div>
+        <div class="time"></div>
+      </div>
+      <div class="flex justify-between text-sm gap-2 text-zinc-100">
+        <div class="day"></div>
+        <div class="time"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Add map -->
+  <div class="w-3/4 mx-auto border-b border-zinc-300 mb-5 flex justify-between items-center">
+    <h1 class="text-zinc-100 text-3xl font-semibold py-2 text-center">Where to find us</h1>
+    <mat-icon class="text-blue-400">public</mat-icon>
+  </div>
+  <div class=" bg-white rounded-lg shadow-lg mx-auto p-1 w-[90%]">
+    <iframe  height="450" frameborder="0" class="w-full "  [src]="helpers.sanitizeUrl(businessServ.currBusiness.address)" allowfullscreen></iframe>
+  </div>
 </div>
   
   

@@ -1,23 +1,44 @@
-<div class="container mx-auto px-4 pb-20 slide-up">
+<div class="container mx-auto px-4 pb-28 slide-up">
     <div class="flex justify-between items-center">
         <h1 class="text-2xl text-zinc-100 font-bold my-8">Pending Orders</h1>
         <mat-icon class="text-zinc-100">update</mat-icon>
     </div>
+    <div *ngIf="orderS.currUserOrders.length < 1"  class="py-2 text-zinc-400">
+      <p>None yet.</p>
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-        <img src="https://source.unsplash.com/random/400x250" alt="Order 1" class="w-full h-48 object-cover">
+      <div *ngFor="let o of orderS.currUserOrders" class="bg-white rounded-lg overflow-hidden shadow-md shadow-zinc-600">
+        <img src="{{o.business.image}}" alt="Order 1" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h2 class="text-lg font-bold mb-2">Order #1</h2>
-          <p class="text-gray-700 mb-2">Status: Pending</p>
-          <p class="text-gray-700">Expected Ready Time: 2:00 PM</p>
+          <div class="flex items-center justify-between">
+            <h2 class="text-xl text-orange-900 font-bold mb-2">Order #{{o.orderNumber}}</h2>
+            <div class="dateTime flex gap-1">
+  
+              <p class="text-orange-900 text-xs mb-1">{{formatDate(o.createdAt, true)}} at</p>
+              <p class="text-orange-900 text-xs mb-1">{{formatDate(o.createdAt, false, true)}}</p>
+            </div>
+
+          </div>
+          <p *ngIf="o.isConfirmed" class="text-gray-700 mb-2">Status: {{o.status}}</p>
+          <p *ngIf="o.isConfirmed" class="text-gray-700">
+            >Expected Ready Time: 2:00 PM
+          </p>
+          <p *ngIf="!o.isConfirmed" class="text-zinc-900 flex items-center gap-1 bg-yellow-400 rounded-md w-fit p-1">
+            <span class="font-semibold">Waiting to be confirmed</span>
+            <mat-icon class="text-md">synced</mat-icon>
+          </p>
           <div class="mt-4">
-            <p class="text-gray-600 text-sm mb-1">Shop: Example Shop</p>
-            <p class="text-gray-600 text-sm mb-1">Date Ordered: April 10, 2023</p>
-            <p class="text-gray-600 text-sm mb-1">Total: $12.99</p>
+            <p class="text-orange-900 font-semibold text-md mb-1">{{o.business.name}}</p>
+            <div (click)="mapS.openModal(o.business.address)" class="flex items-center gap-1 mb-1 underline  rounded-md  w-fit  transition-all">
+              <p class="text-orange-900 text-sm active:text-zinc-500">{{o.business.address}}</p>
+              <mat-icon class="text-blue-400 active:text-blue-600 0">public</mat-icon>
+            </div>
+            
+            <p class="text-orange-900 text-md mb-1 font-semibold">${{o.total}}</p>
           </div>
         </div>
       </div>
-      <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+      <!-- <div class="bg-white rounded-lg overflow-hidden shadow-lg">
         <img src="https://source.unsplash.com/random/400x251" alt="Order 2" class="w-full h-48 object-cover">
         <div class="p-4">
           <h2 class="text-lg font-bold mb-2">Order #2</h2>
@@ -40,6 +61,6 @@
             <p class="text-gray-600 text-sm mb-1">Total: $9.99</p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 </div>

@@ -1,0 +1,55 @@
+<div id="search-modal" class="fixed   top-0 left-0 w-full h-full bg-black bg-opacity-50  fade-in pointer-events-auto ">
+  <div class="fixed  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-400 border border-black rounded-lg shadow-lg px-1 py-5 h-[400px]   w-[90%]">
+    <div class="absolute top-3 right-3">
+      <button (click)="closeModal()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-white">X</button>
+    </div>
+    <!-- <div class="heading m-2 mt-0">
+        <p class="text-2xl font-semibold">Search</p>
+    </div> -->
+    <input (input)="setFilteredList()" class="p-2 rounded-md mx-2" type="text" placeholder="Search..." id="search-modal-text" [(ngModel)]="searchS.searchText">
+    
+    
+    <div class="shops my-4 overflow-auto h-[300px] text-zinc-900 px-1">
+        <p *ngIf="filteredList.length < 1">No results found.</p>
+        <div *ngFor="let b of filteredList" class="shop border-t border-zinc-100">
+            <div class="flex justify-between items-center">
+                <p class="shop-name text-lg font-semibold">{{b.name}}</p>
+                <p class="shop-name text-sm ">Tags: {{b.category}}</p>
+
+            </div>
+            <p>{{b.address}}</p>
+        </div>
+        <!-- <div class="shop border-t border-zinc-800">
+            <p class="shop-name text-lg font-semibold">Fake Food</p>
+            <p>Address</p>
+        </div>
+        <div class="shop border-t border-zinc-800">
+            <p class="shop-name text-lg font-semibold">Fake Food</p>
+            <p>Address</p>
+        </div>
+        <div class="shop border-t border-zinc-800">
+            <p class="shop-name text-lg font-semibold">Fake Food</p>
+            <p>Address</p>
+        </div>
+        <div class="shop border-t border-zinc-800">
+            <p class="shop-name text-lg font-semibold">Fake Food</p>
+            <p>Address</p>
+        </div>
+
+        <div class="shop border-t border-zinc-800">
+            <p class="shop-name text-lg font-semibold">Fake Food222</p>
+            <p>Address</p>
+        </div> -->
+    </div>
+  </div>
+</div>
+<!-- <div class="flex flex-col gap-2">
+    <button class="w-1/4" mat-icon-button (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <br>
+
+
+</div> -->
+
+  

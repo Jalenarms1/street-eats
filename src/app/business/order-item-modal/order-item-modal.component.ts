@@ -38,7 +38,14 @@ export class OrderItemModalComponent implements OnInit {
   }
 
   closeModal() {
-    this.toggleModal.emit()
+    const modal = document.getElementById("order-item-modal")
+    modal?.classList.remove("fade-in")
+    modal?.classList.add("fade-out")
+    setTimeout(() => {
+      // this.toggleModal.emit()
+      this.orderItemS.closeModal()
+
+    }, 1000)
   }
 
   onSideOptToggle(toppingId: string, val: string) {

@@ -12,7 +12,7 @@ export class UserPageComponent implements OnInit {
   constructor(private jwt: JwtService, public user: UserService) { }
 
   ngOnInit(): void {
-    
+    window.scrollTo(0,0)
     
   }
 

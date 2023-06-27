@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { HelpersService } from 'src/app/services/helpers.service';
+// import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { MapModalService } from 'src/app/services/map-modal.service';
 import { environment } from 'src/environments/environment';
 
@@ -9,27 +10,24 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./map-modal.component.css']
 })
 export class MapModalComponent implements OnInit {
-  gmApiKey: string = environment.gmApiKey
   // @Input() addr: string = ''
   @Output() toggleModal = new EventEmitter<void>()
 
-  constructor(private sanitizer: DomSanitizer, public mapModalS: MapModalService) { }
+  constructor( public mapModalS: MapModalService, public helpers: HelpersService) { }
 
   ngOnInit(): void {
   }
 
 
-  sanitizeUrl(addr: string) {
-    console.log(addr);
-    
-    const url = `https://www.google.com/maps/embed/v1/place?key=${this.gmApiKey}&q=${addr}`
-    const sanitizedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-
-    return sanitizedUrl
-
-  }
+  
 
   closeModal() {
-    this.mapModalS.closeMapModal()
+    const modal = document.getElementById("map-modal")
+    modal?.classList.remove("fade-in")
+    modal?.classList.add("fade-out")
+    setTimeout(() => {
+      this.mapModalS.closeMapModal()
+
+    }, 1000)
   }
 }

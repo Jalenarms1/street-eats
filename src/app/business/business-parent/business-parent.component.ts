@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BusinessService } from 'src/app/services/business.service';
+import { HelpersService } from 'src/app/services/helpers.service';
 import { Business } from 'src/models/Business';
 import { FoodItem } from 'src/models/FoodItem';
 
@@ -17,7 +18,7 @@ export class BusinessParentComponent implements OnInit {
   showDrinks = true;
   
 
-  constructor(private route: ActivatedRoute, public businessServ: BusinessService) {
+  constructor(private route: ActivatedRoute, public businessServ: BusinessService, public helpers: HelpersService) {
     
   }
   

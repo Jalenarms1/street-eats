@@ -2,7 +2,7 @@
     box-shadow: 0 0 3px black;
 }
 .tab  {
-    height: 250px;
+    height: 300px;
     overflow-y: auto;
 }
 
@@ -20,13 +20,13 @@
       height: 0;
     }
     100% {
-      height: 250px;
+      height: 300px;
     }
 }
 
 @keyframes slideClose {
     0% {
-      height: 250px;
+      height: 300px;
     }
     100% {
       height: 0;

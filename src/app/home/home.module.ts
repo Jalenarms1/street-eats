@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MapModalComponent } from './map-modal/map-modal.component';
 import { RouterModule } from '@angular/router';
+import { ShopSearchComponent } from './shop-search/shop-search.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { RouterModule } from '@angular/router';
     HomeParentComponent,
     ShopListComponent,
     RecentlyViewedComponent,
+    ShopSearchComponent,
     
   ],
   imports: [
@@ -28,8 +30,9 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     FormsModule,
     BrowserModule,
-    RouterModule
+    RouterModule,
+    
   ],
-  exports:[MatIconModule],
+  exports:[MatIconModule]
 })
 export class HomeModule { }

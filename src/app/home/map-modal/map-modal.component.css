@@ -1,5 +1,13 @@
-#map-modal {
+/* #map-modal {
     animation: slowshow .5s forwards;
+} */
+
+.fade-in {
+    animation: slowshow .7s forwards;
+}
+
+.fade-out {
+    animation: slowhide .7s forwards;
 }
 
 @keyframes slowshow {
@@ -8,5 +16,14 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes slowhide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

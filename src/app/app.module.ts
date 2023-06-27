@@ -23,6 +23,7 @@ import { ConfirmOrderModalComponent } from './confirm-order-modal/confirm-order-
 import { MapModalComponent } from './home/map-modal/map-modal.component';
 import { OrderSuccessModalComponent } from './order-success-modal/order-success-modal.component';
 import { OrderErrorModalComponent } from './order-error-modal/order-error-modal.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { OrderErrorModalComponent } from './order-error-modal/order-error-modal.
     ConfirmOrderModalComponent,
     MapModalComponent,
     OrderSuccessModalComponent,
-    OrderErrorModalComponent
+    OrderErrorModalComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

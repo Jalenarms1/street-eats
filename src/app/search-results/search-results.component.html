@@ -3,9 +3,7 @@
     <div class="absolute top-3 right-3">
       <button (click)="closeModal()" class="bg-red-500 active:bg-red-600 px-2 py-1 rounded-md font-semibold text-white">X</button>
     </div>
-    <!-- <div class="heading m-2 mt-0">
-        <p class="text-2xl font-semibold">Search</p>
-    </div> -->
+   
     <input (input)="setFilteredList()" class="p-2 rounded-md mx-2" type="text" placeholder="Search..." id="search-modal-text" [(ngModel)]="searchS.searchText">
     
     
@@ -19,37 +17,10 @@
             </div>
             <p>{{b.address}}</p>
         </div>
-        <!-- <div class="shop border-t border-zinc-800">
-            <p class="shop-name text-lg font-semibold">Fake Food</p>
-            <p>Address</p>
-        </div>
-        <div class="shop border-t border-zinc-800">
-            <p class="shop-name text-lg font-semibold">Fake Food</p>
-            <p>Address</p>
-        </div>
-        <div class="shop border-t border-zinc-800">
-            <p class="shop-name text-lg font-semibold">Fake Food</p>
-            <p>Address</p>
-        </div>
-        <div class="shop border-t border-zinc-800">
-            <p class="shop-name text-lg font-semibold">Fake Food</p>
-            <p>Address</p>
-        </div>
-
-        <div class="shop border-t border-zinc-800">
-            <p class="shop-name text-lg font-semibold">Fake Food222</p>
-            <p>Address</p>
-        </div> -->
+        
     </div>
   </div>
 </div>
-<!-- <div class="flex flex-col gap-2">
-    <button class="w-1/4" mat-icon-button (click)="closeDialog()">
-        <mat-icon>close</mat-icon>
-    </button>
-    <br>
 
-
-</div> -->
 
   

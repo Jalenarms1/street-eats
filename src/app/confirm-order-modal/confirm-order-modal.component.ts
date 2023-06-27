@@ -26,23 +26,19 @@ export class ConfirmOrderModalComponent implements OnInit {
 
       paypal.Buttons({
         createOrder: (data: any, actions: any) => {
-          // Create the order and return the order ID
-          // This is where you define your payment details
+          
           return actions.order.create({
             purchase_units: [
               {
                 amount: {
-                  value: this.orderS.orderTotal as number // Example payment amount
+                  value: this.orderS.orderTotal as number 
                 }
               }
             ]
           });
         },
         onApprove: (data: any, actions: any) => {
-          // Capture the approved payment
           return actions.order.capture().then((details: any) => {
-            // Payment successful, do further processing
-            // details.payer.email_address
             console.log(details);
             this.submitOrder(details.payer.email_address)
             this.cartS.clearCart()
@@ -51,10 +47,8 @@ export class ConfirmOrderModalComponent implements OnInit {
           });
         },
         onError: (err: any) => {
-          // Handle payment error
           console.log(err);
-        },
-        clientId: environment.paypalClientId
+        }
       }).render('#paypal-button-container');
     })
 

@@ -6,7 +6,7 @@
     <div *ngIf="orderS.currUserOrders.length < 1"  class="py-2 text-zinc-400">
       <p>None yet.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-6">
       <div *ngFor="let o of orderS.currUserOrders" class="bg-white rounded-lg overflow-hidden shadow-md shadow-zinc-600">
         <img src="{{o.business.image}}" alt="Order 1" class="w-full h-48 object-cover">
         <div class="p-4">

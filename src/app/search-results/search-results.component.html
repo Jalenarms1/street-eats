@@ -9,7 +9,7 @@
     
     <div class="shops my-4 overflow-auto h-[300px] text-zinc-900 px-1">
         <p *ngIf="filteredList.length < 1">No results found.</p>
-        <div *ngFor="let b of filteredList" class="shop border-t border-zinc-100">
+        <div (click)="goTo(b.id)" *ngFor="let b of filteredList" class="shop border-t border-zinc-100">
             <div class="flex justify-between items-center">
                 <p class="shop-name text-lg font-semibold">{{b.name}}</p>
                 <p class="shop-name text-sm ">Tags: {{b.category}}</p>

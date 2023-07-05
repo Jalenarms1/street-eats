@@ -98,10 +98,10 @@ export class OrderItemModalComponent implements OnInit {
         this.orderItemS.orderItem.toppings.push(orderItemTopping)
       })
       
-      this.cartS.addToCart(this.orderItemS.orderItem, this.businessServ.currBusiness.id)
+      this.cartS.addToCart(this.orderItemS.orderItem, this.businessServ.currBusiness.id,this.businessServ.currBusiness.name )
       
       
-      this.orderItemS.closeModal()
+      this.closeModal()
     }
   }
 

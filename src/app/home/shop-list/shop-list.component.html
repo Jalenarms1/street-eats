@@ -3,10 +3,9 @@
         <h2 class="text-2xl text-slate-50 font-bold ">Food Near You</h2>
         <mat-icon class="text-slate-50">my_location</mat-icon>
     </div>
-    <!-- <app-map-modal *ngIf="modalOpen" [addr]="selectedAddr" (toggleModal)="toggleModal()"></app-map-modal> -->
     <div class="flex overflow-x-auto gap-2 pb-10">
         
-        <div *ngFor="let b of businessServ.businesses" class="flex-none w-full md:w-96 lg:w-1/4 mx-auto">
+        <div *ngFor="let b of businessServ.businesses" class="flex-none w-full md:w-96 lg:w-2/5 max-sm:mx-auto">
             <div class="bg-zinc-800 rounded-md shadow-sm shadow-slate-600 overflow-hidden">
                 <img src="{{b.image}}" alt="Food Truck Image" class="w-full h-64 object-cover">
                 <div class="flex flex-col justify-center">
@@ -15,8 +14,7 @@
                             <h3 class="text-lg text-slate-50 font-semibold ">{{b.name}}</h3>
                             <p class="text-xs text-slate-300">Tags: {{b.category}}</p>
                         </div>
-                        <!-- <p class="text-slate-300 text-sm mb-2">0.5m</p> -->
-                        <!-- AIzaSyB4k-UcLnZWvmJAE625JI1aWofPZaJlcz0 -->
+                        
                         <button (click)="mapModalS.openModal(b.address)" class="text-xs text-white bg-slate-500 rounded-md px-2 py-1">{{b.address}}</button>
                     
                     </div>

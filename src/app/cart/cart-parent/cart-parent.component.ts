@@ -16,12 +16,12 @@ export class CartParentComponent implements OnInit {
   ngOnInit(): void { 
     window.scrollTo(0,0);
     console.log(this.cartS.cart.orderItems.length);
+    this.getBusinessName(this.cartS.cart.businessId)
     
-    setTimeout(() => {
-      this.getBusinessName(this.cartS.cart.businessId)
-      console.log(this.businessName);
+    // setTimeout(() => {
+    //   console.log(this.businessName);
       
-    }, 300);
+    // }, 300);
     
   }
 

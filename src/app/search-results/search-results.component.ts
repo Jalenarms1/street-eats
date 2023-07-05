@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, OnDestroy, Renderer2 } from '@angular/co
 import { ShopSearchService } from '../services/shop-search.service';
 import { Business } from 'src/models/Business';
 import { BusinessService } from '../services/business.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-results',
@@ -10,7 +11,7 @@ import { BusinessService } from '../services/business.service';
 })
 export class SearchResultsComponent implements OnInit {
   filteredList: Business[] = []
-  constructor(public searchS: ShopSearchService, private elementRef: ElementRef, private businessS: BusinessService, private renderer: Renderer2) { }
+  constructor(public searchS: ShopSearchService, private elementRef: ElementRef, private businessS: BusinessService, private renderer: Renderer2, private router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -41,6 +42,12 @@ export class SearchResultsComponent implements OnInit {
   setFilteredList() {
     this.filteredList = this.businessS.allBusinesses.filter(b => b.name.toLowerCase().includes(this.searchS.searchText.toLowerCase()))
 
+  }
+
+  goTo(id: string) {
+    this.searchS.searchModalOpen = false
+    this.searchS.searchText = ''
+    this.router.navigateByUrl(`/business/${id}`)
   }
   
 

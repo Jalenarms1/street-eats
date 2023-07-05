@@ -4,5 +4,6 @@ import { OrderItemTopping } from "./OrderItemTopping";
 export interface Cart {
     orderItems: OrderItem[],
     total: number,
-    businessId: string
+    businessId: string,
+    businessName: string
 }

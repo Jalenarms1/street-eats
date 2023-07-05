@@ -9,7 +9,7 @@ import { OrderItemTopping } from 'src/models/OrderItemTopping';
 })
 export class CartService {
   cartKey: string = environment.cartToken
-  cart: Cart = {orderItems: [], total: 0, businessId: ''} as Cart
+  cart: Cart = {orderItems: [], total: 0, businessId: '', businessName: ''} 
   constructor() {
     this.setCart(this.getLSCart() ?? this.cart)
   }
@@ -25,21 +25,22 @@ export class CartService {
   }
   
   
-  addToCart(orderItem: OrderItem, businessId: string) {
+  addToCart(orderItem: OrderItem, businessId: string, businessName: string) {
     
     
     let cart: Cart = this.getLSCart()
     if(!cart) {
       cart = {
-        businessId: businessId,
+        businessId,
         orderItems: [orderItem],
-        total: parseFloat(orderItem.total.toFixed(2))
+        total: parseFloat(orderItem.total.toFixed(2)),
+        businessName
         
       }
     } else {
-      // cart.orderItems = [...cart.orderItems, orderItem]
       cart.orderItems.push(orderItem)
       cart.businessId = businessId
+      cart.businessName = businessName
       cart.total = parseFloat(cart.orderItems.reduce(((acc, currObj) => acc += currObj.total), 0).toFixed(2))
     }
     
@@ -62,7 +63,7 @@ export class CartService {
 
   clearCart() {
     localStorage.removeItem(this.cartKey)
-    this.cart = {orderItems: [], total: 0, businessId: ''}
+    this.cart = {orderItems: [], total: 0, businessId: '', businessName: ''}
     this.setCart(this.cart)
 
   }

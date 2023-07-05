@@ -7,7 +7,7 @@
         </div>
         <div *ngIf="cartS.cart.orderItems.length > 0" class="business-name flex items-center gap-2 bg-orange-400 w-fit rounded-sm py-1 px-1">
             <!-- <mat-icon class="text-orange-950 bg-orange-400 rounded-sm">star</mat-icon> -->
-            <a  routerLink="/business/{{cartS.cart.businessId}}" class="text-white  text-lg">{{businessName}}</a>
+            <a  routerLink="/business/{{cartS.cart.businessId}}" class="text-white  text-lg">{{cartS.cart.businessName}}</a>
         </div>
     </header>
     
@@ -15,22 +15,25 @@
         <p class="text-slate-300 text-sm">No items in the cart, yet.</p>
     </section>
     <section class="  py-4 flex flex-col gap-2 px-2">
-        <div *ngFor="let ci of cartS.cart.orderItems; let i = index" class="grid grid-cols-12 gap-3 border-b border-zinc-100 pb-3 ">
-            <div class="col-span-3">
-                <img src="{{ci.foodItem.image}}" alt="item image" class="rounded-lg w-32 h-20">
-            </div>
-            <div class="col-span-5">
-                <h4 class="text-zinc-100 font-semibold text-base">{{ci.foodItem.name}}</h4>
-                <div *ngIf="ci.foodItem.type != 'Drink'">
-                    <p class="text-zinc-300 text-xs">{{orderItemS.getToppingsStr(ci.toppings)}}</p>
-                    <p *ngIf="ci.toppings.length < 1" class="text-zinc-300 text-sm">No toppings</p>
+        <div *ngFor="let ci of cartS.cart.orderItems; let i = index" class="flex justify-between gap-3 border-b border-zinc-100 pb-3 ">
+            <div class="flex gap-2">
+                <div class="col-span-3">
+                    <img src="{{ci.foodItem.image}}" alt="item image" class="rounded-lg w-24 h-20">
+                </div>
+                <div class="col-span-5">
+                    <h4 class="text-zinc-100 font-semibold text-base">{{ci.foodItem.name}}</h4>
+                    <div *ngIf="ci.foodItem.type != 'Drink'">
+                        <p class="text-zinc-300 text-xs">{{orderItemS.getToppingsStr(ci.toppings)}}</p>
+                        <p *ngIf="ci.toppings.length < 1" class="text-zinc-300 text-sm">No toppings</p>
+    
+                    </div>
+                    <div class="flex items-center gap-2 text-white text-lg mt-1 font-semibold">
+                        <mat-icon (click)="cartS.removeFromCart(i)" class=" w-5 h-5 flex justify-center items-center rounded-sm text-red-500">delete_forever</mat-icon>
+                        <p (click)="cartS.updQuantity(-1, i)" class="bg-orange-400 w-5 h-5 flex justify-center items-center rounded-sm pb-1">-</p>
+                        <p (click)="cartS.updQuantity(1, i)" class="bg-orange-400 w-5 h-5 flex justify-center items-center rounded-sm">+</p>
+                    </div>
+                </div>
 
-                </div>
-                <div class="flex items-center gap-2 text-white text-lg mt-1 font-semibold">
-                    <mat-icon (click)="cartS.removeFromCart(i)" class=" w-5 h-5 flex justify-center items-center rounded-sm text-red-500">delete_forever</mat-icon>
-                    <p (click)="cartS.updQuantity(-1, i)" class="bg-orange-400 w-5 h-5 flex justify-center items-center rounded-sm pb-1">-</p>
-                    <p (click)="cartS.updQuantity(1, i)" class="bg-orange-400 w-5 h-5 flex justify-center items-center rounded-sm">+</p>
-                </div>
             </div>
             <div class="col-span-4 text-right flex flex-col justify-between">
                 <p class="text-zinc-100 text-sm">Quantity: {{ci.quantity}}</p>
